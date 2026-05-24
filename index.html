@@ -49,6 +49,7 @@
 
   @media (max-width: 768px) {
     .navbar { flex-direction: column; gap: 10px; padding: 15px; }
+    .search-container { max-width: 100%; }
     .banner { flex-direction: column; text-align: center; gap: 15px; }
   }
 </style>
@@ -56,7 +57,6 @@
 <body>
 
   <nav class="navbar">
-    <a href="#" class="logo">Portal<span>DUK</span></a>
   </nav>
 
   <div class="container">
@@ -177,6 +177,19 @@
       renderCards(filtered, filter);
     });
 
+    // LOGIKA PENCARIAN
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const val = e.target.value.toLowerCase();
+      const filtered = allData.filter(p => 
+        p.Nama.toLowerCase().includes(val) || 
+        p.NIP.toLowerCase().includes(val)
+      );
+      renderCards(filtered);
+      
+      // Reset filter button ke "Semua" saat mencari
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('[data-filter="all"]').classList.add('active');
+    });
 
     fetchData();
   </script>
