@@ -8,7 +8,24 @@
   /* --- BASE STYLE --- */
   body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
   
- 
+  /* --- NAVBAR DENGAN PENCARIAN --- */
+  .navbar { 
+    background-color: #1e1e1e; padding: 10px 5%; display: flex; justify-content: space-between; 
+    align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; 
+  }
+  .logo { font-size: 1.2rem; font-weight: 900; color: #fff; text-decoration: none; min-width: 150px; }
+  .logo span { color: #f39c12; }
+  
+  .search-container { position: relative; width: 100%; max-width: 400px; }
+  .search-input {
+    width: 100%; background: #2a2a2a; border: 1px solid #444; border-radius: 20px;
+    padding: 8px 15px 8px 35px; color: #fff; outline: none; transition: 0.3s;
+  }
+  .search-input:focus { border-color: #f39c12; box-shadow: 0 0 5px rgba(243,156,18,0.3); }
+  .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; font-size: 0.9rem; }
+
+  .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+
   /* --- BANNER & LOGO --- */
   .banner { 
     background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%); 
@@ -58,6 +75,9 @@
 
   <nav class="navbar">
     <a href="#" class="logo">Portal<span>DUK</span></a>
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Cari Nama atau NIP...">
     </div>
   </nav>
 
